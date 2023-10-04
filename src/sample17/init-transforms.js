@@ -7,7 +7,7 @@ function initTransforms(gl, program){
       // and 100 units away from the camera.
       
 
-      const fieldOfView = (60 * Math.PI) / 180; // in radians
+      const fieldOfView = (45 * Math.PI) / 180; // in radians
       const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
       const zNear = 0.1;
       const zFar = 1000.0;
@@ -20,14 +20,14 @@ function initTransforms(gl, program){
       // https://github.com/sessamekesh/IndigoCS-webgl-tutorials/blob/dff2ce9800d5cabc5bf8e226b8fce1df0df2f489/02%20-%20Rotating%20Cube/app.js#L189-L197
       // https://github.com/Rintarooo/OpenGLCourseJP/blob/8c44261979c88b02b6ba0d373ec07963b5126d3a/src/shading_models/main.cpp#L341-L353
 
-      var camPosition = [3.15,1.45,3.1];//[5,5,5];//[500, 300, 500];
+      var camPos = [1.45,1.1,3.1];//[3.15,1.45,3.1];//[5,5,5];//[500, 300, 500];
       var camAim = [0,0,0]//[0,0,-8];//[0, -100, 0];
       var camUp = [0, 1, 0];
 
       // // Compute the camera's matrix using look at.
       // var cameraMatrix = mat4.lookAt(cameraPosition, cameraTarget, up);
       // const viewMatrix = mat4.create();
-      // mat4.lookAt(viewMatrix, camAim, camPosition, camUp);
+      // mat4.lookAt(viewMatrix, camAim, camPos, camUp);
       // const modelMatrix = mat4.create();
       // mat4.identity(modelMatrix);
 
@@ -45,9 +45,9 @@ function initTransforms(gl, program){
       const modelViewMatrix = mat4.create();
       // const modelViewMatrix = mat4.multiply(viewMatrix, modelMatrix);
       // mat4.lookAt(modelViewMatrix, [0, 0, -8], [0, 0, 0], [0, 1, 0]);
-      // mat4.lookAt(modelViewMatrix, ...camAim, ...camPosition, ...camUp);
-      // mat4.lookAt(modelViewMatrix, camAim, camPosition, camUp);
-      mat4.lookAt(modelViewMatrix, camPosition, camAim, camUp);
+      // mat4.lookAt(modelViewMatrix, ...camAim, ...camPos, ...camUp);
+      // mat4.lookAt(modelViewMatrix, camAim, camPos, camUp);
+      mat4.lookAt(modelViewMatrix, camPos, camAim, camUp);
 
       // const cubeRotation = 1.5;
     
