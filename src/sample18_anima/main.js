@@ -1,7 +1,6 @@
 import { initShaderProgram } from "./init-shader.js";
 import { initBuffers } from "./init-buffers.js";
 import { initTransforms } from "./init-transforms.js";
-// import { animateLoop } from "./init-animation.js";
 import { draw } from "./draw-scene.js";
 
 // Call init once the webpage has loaded
@@ -27,7 +26,8 @@ function main() {
     // requestAnimationFrame(animateLoop);
     let deltaTime = 0;
     let then = 0;
-    let z = -10;
+    let degree = 45;
+
     function animateLoop(now) {
       // 時間の単位をミリ秒から秒に変換する。
       now *= 0.001;
@@ -35,12 +35,10 @@ function main() {
       deltaTime = now - then;
       // 次回のフレームで利用するために、現在時刻を記憶しておく。
       then = now;
-      initTransforms(gl, program, x);
+
+      initTransforms(gl, program, degree);
       draw(gl, program, buffers);
-      // draw(gl, program, buffers, camRotation);
-      // camRotation += deltaTime;
-      x += deltaTime;
-  
+      degree += 100*deltaTime;  
       requestAnimationFrame(animateLoop);
     }
     requestAnimationFrame(animateLoop);
