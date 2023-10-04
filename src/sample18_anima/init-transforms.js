@@ -13,7 +13,7 @@ function initTransforms(gl, program, degree){
       degree = degree % 360;
       // 角度をラジアンに変換
       const radian = degree * (Math.PI / 180);
-      const radius = 2.0;
+      const radius = 3.0;
       // cos, sin関数に入力
       const camPosX = radius * Math.cos(radian);
       const camPosZ = radius * Math.sin(radian);
