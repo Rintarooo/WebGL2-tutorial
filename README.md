@@ -11,5 +11,7 @@
     * 3d cube vao
 * sample17
     * 3d cube vao, lookat
-* sample18_anima
+* sample19_anima_refactor
     * animation, 3d cube rotate around y axis
+* sample20_phong
+    * animation, 3d cube rotate around y axis, shading
