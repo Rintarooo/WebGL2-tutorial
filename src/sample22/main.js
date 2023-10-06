@@ -3,6 +3,7 @@ import { initBuffers } from "./init-buffers.js";
 import { initTransforms } from "./init-transforms.js";
 import { initLights } from "./init-lighting.js";
 import { draw } from "./draw-scene.js";
+import { callbackEventZoom, callbackEventMouseMove } from "./callback-events.js";
 
 // Call init once the webpage has loaded
 window.onload = main;
@@ -16,8 +17,9 @@ function main() {
     // canvas.onmousemove;
     // window.onkeydown;
     // window.onkeyup;
-    // document.addEventListener("mousemove", mouseMoveHandler, false);
-    // https://developer.mozilla.org/ja/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls
+
+    // canvas.addEventListener("wheel", callbackEventZoom, false);
+    canvas.addEventListener("mousemove", callbackEventMouseMove, false);
 
     // Retrieve a WebGL context
     const gl = canvas.getContext("webgl2");

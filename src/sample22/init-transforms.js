@@ -1,3 +1,6 @@
+import { mouse } from "./callback-events.js";
+
+
 function initTransforms(gl, program, degree){
       const fieldOfView = (45 * Math.PI) / 180; // in radians
       const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
@@ -51,7 +54,9 @@ function initTransforms(gl, program, degree){
       ); // axis to rotate around (Y)
 
       // console.log(modelMatrix);
-      const camPos = [1.45, 1.1, 3.1], camAim = [0, 0, -1.0], camUp = [0, 1, 0];
+      const camPos = [2*mouse.x, 1.1, 10*mouse.y],//[1.45, 1.1, 3.1],
+            camAim = [0, 0, -1.0],
+            camUp = [0, 1, 0];
       mat4.lookAt(viewMatrix, camPos, camAim, camUp);
       // mat4.multiply(modelViewMatrix, modelViewMatrix, viewMatrix);
       mat4.multiply(modelViewMatrix, viewMatrix, modelViewMatrix);
