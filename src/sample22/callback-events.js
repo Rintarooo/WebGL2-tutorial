@@ -42,7 +42,7 @@ function callbackEventMouseMove(event) {
   
     // console.log("event.rect: " + event.clientX + "\nevent.target.offsetLeft: " + event.target.offsetLeft)
 
-    let scaleIncrement = 3.;  // ズームの増減量
+    let scaleIncrement = 30.;  // ズームの増減量
 
     // 座標を更新
     mouse.x = x * scaleIncrement;

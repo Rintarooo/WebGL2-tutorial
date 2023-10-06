@@ -35,24 +35,24 @@ function initTransforms(gl, program, degree){
         modelViewMatrix, // matrix to translate
         [0,0,-1.0]
       ); // amount to translate
-      // mat4.rotate(
-      //   modelViewMatrix, // destination matrix
-      //   modelViewMatrix, // matrix to rotate
-      //   radian * 0.8, // amount to rotate in radians
-      //   [1, 0, 0]
-      // ); // axis to rotate around (X)
-      // mat4.rotate(
-      //   modelViewMatrix, // destination matrix
-      //   modelViewMatrix, // matrix to rotate
-      //   radian * 0.1, // amount to rotate in radians
-      //   [0, 0, 1]
-      // ); // axis to rotate around (Z)
+      mat4.rotate(
+        modelViewMatrix, // destination matrix
+        modelViewMatrix, // matrix to rotate
+        (-mouse.x % 360) * (Math.PI / 180) * 1.5, // amount to rotate in radians
+        [1, 0, 0]
+      ); // axis to rotate around (X)
       mat4.rotate(
         modelViewMatrix, // destination matrix
         modelViewMatrix, // matrix to rotate
         radian * 50.0, // amount to rotate in radians
         [0, 1, 0]
       ); // axis to rotate around (Y)
+      mat4.rotate(
+        modelViewMatrix, // destination matrix
+        modelViewMatrix, // matrix to rotate
+        (mouse.y % 360) * (Math.PI / 180) * 1.5, // amount to rotate in radians
+        [0, 0, 1]
+      ); // axis to rotate around (Z)
 
       // console.log(modelMatrix);
       const camPos = [1.45, 1.1, 3.1],//[2*mouse.x, 1.1, 10*mouse.y],
