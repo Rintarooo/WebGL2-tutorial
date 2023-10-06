@@ -1,13 +1,14 @@
-import { mouse } from "./callback-events.js";
+import { mouse, wheel } from "./callback-events.js";
 
 
 function initTransforms(gl, program, degree){
-      const fieldOfView = (45 * Math.PI) / 180; // in radians
+      const fov_deg = Math.abs(wheel) % 180;//45;
+      const fov_rad = (fov_deg * Math.PI) / 180; // in radians
       const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
       const zNear = 0.1;
       const zFar = 1000.0;
       const projectionMatrix = mat4.create();
-      mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
+      mat4.perspective(projectionMatrix, fov_rad, aspect, zNear, zFar);
 
       let 
         // modelMatrix = mat4.create(),
@@ -54,7 +55,7 @@ function initTransforms(gl, program, degree){
       ); // axis to rotate around (Y)
 
       // console.log(modelMatrix);
-      const camPos = [2*mouse.x, 1.1, 10*mouse.y],//[1.45, 1.1, 3.1],
+      const camPos = [1.45, 1.1, 3.1],//[2*mouse.x, 1.1, 10*mouse.y],
             camAim = [0, 0, -1.0],
             camUp = [0, 1, 0];
       mat4.lookAt(viewMatrix, camPos, camAim, camUp);

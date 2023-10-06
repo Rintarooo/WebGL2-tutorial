@@ -18,7 +18,7 @@ function main() {
     // window.onkeydown;
     // window.onkeyup;
 
-    // canvas.addEventListener("wheel", callbackEventZoom, false);
+    canvas.addEventListener("wheel", callbackEventZoom, false);
     canvas.addEventListener("mousemove", callbackEventMouseMove, false);
 
     // Retrieve a WebGL context

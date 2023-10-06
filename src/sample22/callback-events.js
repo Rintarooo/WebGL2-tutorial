@@ -1,18 +1,18 @@
 var mouse = { x: 0, y: 0 };
+var wheel = 45;//1;  // 初期のスケール値
 
 function callbackEventZoom(event) {
     event.preventDefault();  // デフォルトのスクロール動作を停止
 
-    var scale = 1;  // 初期のスケール値
-    var scaleIncrement = 0.1;  // ズームの増減量
+    let scaleIncrement = 5.;  // ズームの増減量
 
     // ホイールの回転方向によってスケールを増減
     if (event.deltaY < 0) {
         // ホイールを上に回転（ズームイン）
-        scale += scaleIncrement;
+        wheel += scaleIncrement;
     } else {
         // ホイールを下に回転（ズームアウト）
-        scale -= scaleIncrement;
+        wheel -= scaleIncrement;
     }
 
     // // キャンバスのコンテキストを取得
@@ -24,7 +24,7 @@ function callbackEventZoom(event) {
 
     // // ズーム処理
     // ctx.translate(x, y);
-    // ctx.scale(scale, scale);
+    // ctx.scale(wheel, wheel);
     // ctx.translate(-x, -y);
 
     // ここでキャンバスを再描画するなどの処理を追加...
@@ -42,10 +42,12 @@ function callbackEventMouseMove(event) {
   
     // console.log("event.rect: " + event.clientX + "\nevent.target.offsetLeft: " + event.target.offsetLeft)
 
+    let scaleIncrement = 3.;  // ズームの増減量
+
     // 座標を更新
-    mouse.x = x;
-    mouse.y = y;
+    mouse.x = x * scaleIncrement;
+    mouse.y = y * scaleIncrement;
     console.log("mouse.x: " + mouse.x + "\nmouse.y: " + mouse.y)
 }
 
-export {callbackEventZoom, callbackEventMouseMove, mouse};
+export {callbackEventZoom, callbackEventMouseMove, mouse, wheel};
