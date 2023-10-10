@@ -5,6 +5,11 @@ import { initLights } from "./init-lighting.js";
 import { draw } from "./draw-scene.js";
 import { callbackEventZoom, callbackEventMouseMove } from "./callback-events.js";
 
+
+// ドラッグ中かどうかを示すフラグ
+var isDragging = false;
+export {isDragging};
+
 // Call init once the webpage has loaded
 window.onload = main;
 // main()
@@ -12,14 +17,25 @@ window.onload = main;
 function main() {
     // Retrieve the canvas
     const canvas = document.getElementById("webgl-canvas");
-    // canvas.onmousedown;
-    // canvas.onmouseup;
-    // canvas.onmousemove;
     // window.onkeydown;
     // window.onkeyup;
 
-    canvas.addEventListener("wheel", callbackEventZoom, false);
+
+    // マウスを押下したときのイベントリスナー
+    canvas.addEventListener('mousedown', function(e) {
+        isDragging = true;
+    });
+
+    // マウスを移動したときのイベントリスナー
     canvas.addEventListener("mousemove", callbackEventMouseMove, false);
+    // マウスを離したときのイベントリスナー
+    canvas.addEventListener('mouseup', function(e) {
+      isDragging = false;
+    });
+    // console.log("isDragging: ", isDragging)
+    canvas.addEventListener("wheel", callbackEventZoom, false);
+
+
 
     // Retrieve a WebGL context
     const gl = canvas.getContext("webgl2");
