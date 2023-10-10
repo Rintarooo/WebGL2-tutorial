@@ -15,3 +15,6 @@
     * animation, 3d cube rotate around y axis
 * sample20_phong
     * animation, 3d cube rotate around y axis, shading
+* sample22_cube_mouse
+    * animation, 3d cube rotate around y axis, shading, mouse func
+    * canvas resize
