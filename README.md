@@ -18,3 +18,5 @@
 * sample22_cube_mouse
     * animation, 3d cube rotate around y axis, shading, mouse func
     * canvas resize
+* sample23_orbit_cam
+    * animation, 3d cube rotate around y axis, shading, mouse func, orbit camera
