@@ -1,6 +1,7 @@
 # My WebGL
 
-* hello_world_webgl
+* sample0_hello_world_canvas
+* sample1_hello_world_webgl
 * sample13
     * 2d square vbo (without vao)
 * sample14
