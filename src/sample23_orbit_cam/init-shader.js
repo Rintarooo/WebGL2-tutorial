@@ -45,6 +45,10 @@ function attachAttrib(gl, program) {
   // We attach the location of these shader values to the `program` instance
   // for easy access later in the code
   //  gl.getAttribLocation: attribute 変数名 (name) を指定して、その変数がどのインデックスにバインドされているかを問い合わせる。
+  // この位置（インデックス）は、頂点データをGPUに送信するときに、そのデータがどの属性変数に対応するのかを指示するために使用されます。
+  // 具体的には、`gl.vertexAttribPointer`関数を呼び出すときにこの位置（インデックス）を指定します。
+  // これにより、頂点バッファ（メモリ内の頂点データのブロック）のデータが、
+  // シェーダープログラム内の特定の属性変数（例えば`aVertexPosition`）に関連付けられます。
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
   program.aVertexNormal = gl.getAttribLocation(program, 'aVertexNormal');
   program.uProjectionMatrix = gl.getUniformLocation(program, 'uProjectionMatrix');

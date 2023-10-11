@@ -1,18 +1,27 @@
-function initBuffers(gl) {
+function initBuffers(gl, program) {
+
+
+  // Create VAO instance
+  const squareVAO = gl.createVertexArray();
+  // Bind VAO
+  gl.bindVertexArray(squareVAO);
 
   // Setting up the VBO (position)
   const positionBuffer = initPositionBuffer(gl);
+  gl.enableVertexAttribArray(program.aVertexPosition);
+  // it tells gl context how to interpret the data in shader
+  gl.vertexAttribPointer(program.aVertexPosition, 2, gl.FLOAT, false, 0, 0);
 
   // IBO
   const [indexBuffer, index_array_size] = initIndexBuffer(gl);
 
-  // UnBind
+  // UnBind VAO, VBO and IBO
+  gl.bindVertexArray(null);
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 
   return {
-    position: positionBuffer,
-    position_dim: 2,
+    vao: squareVAO,
     ibo: indexBuffer,
     index_array_size: index_array_size
 };

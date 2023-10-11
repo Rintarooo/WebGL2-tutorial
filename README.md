@@ -5,6 +5,7 @@
 * sample2_2d_square
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
 * sample3_2d_square_ibo
+* sample4_2d_square_vao
 * sample13
     * 2d square vbo (without vao)
 * sample14

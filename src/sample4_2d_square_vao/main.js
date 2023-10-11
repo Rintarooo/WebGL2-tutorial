@@ -26,6 +26,6 @@ function main() {
 
   // Initialize a shader program object
   const program = initShaderProgram(gl);
-  const buffers = initBuffers(gl);
+  const buffers = initBuffers(gl, program);
   drawScene(gl, program, buffers);
 }

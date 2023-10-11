@@ -6,6 +6,7 @@ function drawScene(gl, program, buffers) {
 
   // Use the buffers we've constructed
   gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+  // it tells gl context how to interpret the data in shader
   gl.vertexAttribPointer(program.aVertexPosition, buffers.position_dim, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(program.aVertexPosition);
     
