@@ -4,7 +4,11 @@ window.onload = main;
 function main() {
   // canvas要素取得
   const canvas_id = "hello-canvas-id";
-  const canvas = getCanvas(canvas_id);
+  const canvas = document.getElementById(canvas_id);
+  if (!canvas) {
+    console.error(`There is no canvas with id ${canvas_id} on this page.`);
+    return null;
+  }
 
   // canvasのサイズ指定
   canvas.width = 800;
