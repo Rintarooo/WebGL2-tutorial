@@ -1,20 +1,14 @@
+import { initShaderProgram } from "./init-shader.js";
 import { initBuffers } from "./init-buffers.js";
 import { drawScene } from "./draw-scene.js";
-import { vsSource, fsSource, initShaderProgram} from "./shader.js";
 
+// Call init once the webpage has loaded
 window.onload = main;
 
 function main() {
   const canvas = document.getElementById("glcanvas");
 
   const gl = canvas.getContext("webgl2");
-  
-  const width = gl.canvas.clientWidth;
-  const height = gl.canvas.clientHeight;
-  gl.canvas.width = width;
-  gl.canvas.height = height;
-
-  // Only continue if WebGL is available and working
   if (gl === null) {
     alert(
       "Unable to initialize WebGL. Your browser or machine may not support it."
@@ -22,33 +16,16 @@ function main() {
     return;
   }
 
-  // // Set clear color to black, fully opaque
-  // gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  // // Clear the color buffer with specified clear color
-  // gl.clear(gl.COLOR_BUFFER_BIT);
+  // https://webglfundamentals.org/webgl/lessons/webgl-anti-patterns.html
+  const width = gl.canvas.clientWidth;
+  const height = gl.canvas.clientHeight;
+  gl.canvas.width = width;
+  gl.canvas.height = height;
+  // canvas.width = 500;//window.innerWidth;
+  // canvas.height = 500;//window.innerHeight;
 
-  // Initialize a shader program; this is where all the lighting
-  // for the vertices and so forth is established.
-  const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
-
-  // Collect all the info needed to use the shader program.
-  // Look up which attribute our shader program is using
-  // for aVertexPosition and look up uniform locations.
-  const programInfo = {
-    program: shaderProgram,
-    attribLocations: {
-      vertexPosition: gl.getAttribLocation(shaderProgram, "aVertexPosition"),
-    },
-    uniformLocations: {
-      projectionMatrix: gl.getUniformLocation(
-        shaderProgram,
-        "uProjectionMatrix"
-      ),
-      modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
-    },
-  };
-
+  // Initialize a shader program object
+  const program = initShaderProgram(gl);
   const buffers = initBuffers(gl);
-
-  drawScene(gl, programInfo, buffers);
+  drawScene(gl, program, buffers);
 }

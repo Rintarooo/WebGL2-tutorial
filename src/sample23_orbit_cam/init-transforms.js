@@ -5,20 +5,22 @@ function deg2rad(x){
 }
 
 function initTransforms(gl, program, degree){
-      const fov_deg = Math.abs(wheel) % 180;//45;
-      const fov_rad = (fov_deg * Math.PI) / 180; // in radians
-      const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-      const zNear = 0.1;
-      const zFar = 1000.0;
-      const projectionMatrix = mat4.create();
-      mat4.perspective(projectionMatrix, fov_rad, aspect, zNear, zFar);
-
+  const 
+    fov = Math.abs(wheel) % 180,//45,
+    aspect = gl.canvas.clientWidth / gl.canvas.clientHeight,
+    zNear = 0.1,
+    zFar = 1000.0,
+    projectionMatrix = mat4.create(),
+    viewMatrix = mat4.create(),
+    modelViewMatrix = mat4.create(),
+    normalMatrix = mat4.create();
+  mat4.perspective(projectionMatrix, deg2rad(fov), aspect, zNear, zFar);
       // console.log("mouse x: ", mouse.x);
 
-      let 
-        // modelMatrix = mat4.create(),
-        viewMatrix = mat4.create(),
-        modelViewMatrix = mat4.create();
+      // let 
+      //   // modelMatrix = mat4.create(),
+      //   viewMatrix = mat4.create(),
+      //   modelViewMatrix = mat4.create();
       // mat4.identity(modelMatrix);
       // mat4.translate(
       //   modelMatrix, // destination matrix
@@ -115,7 +117,7 @@ function initTransforms(gl, program, degree){
       // let camPos = [camPosX, 1.1, camPosZ];
       
       //// normalMatrix
-      let normalMatrix = mat4.create();
+      // let normalMatrix = mat4.create();
       mat4.copy(normalMatrix, modelViewMatrix);
       mat4.invert(normalMatrix, normalMatrix);
       mat4.transpose(normalMatrix, normalMatrix);

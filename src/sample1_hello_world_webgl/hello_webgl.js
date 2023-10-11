@@ -1,3 +1,4 @@
+// Call init once the webpage has loaded
 window.onload = main;
 
 function main(){
