@@ -3,13 +3,19 @@ function initBuffers(gl) {
   // Setting up the VBO (position)
   const positionBuffer = initPositionBuffer(gl);
 
+  // IBO
+  const [indexBuffer, index_array_size] = initIndexBuffer(gl);
+
   // UnBind
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 
   return {
     position: positionBuffer,
     position_dim: 2,
-  };
+    ibo: indexBuffer,
+    index_array_size: index_array_size
+};
 }
 
 
@@ -53,5 +59,16 @@ function initPositionBuffer(gl) {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
   return positionBuffer;
 }
+
+
+// IBO
+function initIndexBuffer(gl) {
+  const indices = [0,1,2,2,1,3];
+  const indexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+  return [indexBuffer, indices.length];
+}
+
 
 export { initBuffers };

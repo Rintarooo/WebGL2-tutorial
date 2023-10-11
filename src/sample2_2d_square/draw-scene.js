@@ -12,7 +12,8 @@ function drawScene(gl, program, buffers) {
   const offset = 0;
   const vertexCount = 4;
   gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
-  // Clean after Drawing
+
+  // Unbind VBO
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
 
