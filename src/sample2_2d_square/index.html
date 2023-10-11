@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>WebGL Demo</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
       integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
@@ -13,12 +23,6 @@
     <script src="main.js" type="module"></script>
   </head>
   <body>
-    <h1>描画領域</h1>
-    <p>WebGLで描画します</p>
-    <!-- <canvas id="glcanvas" width="640" height="480"></canvas> -->
     <canvas id="glcanvas"></canvas>
-
-    <!-- <script src="webgl-demo.js"></script> -->
-    <!-- <script>window.onload = main;</script> -->
   </body>
 </html>

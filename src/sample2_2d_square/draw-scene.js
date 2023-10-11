@@ -7,7 +7,8 @@ function drawScene(gl, programInfo, buffers) {
     // Clear the canvas before we start drawing on it.
   
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
     // Create a perspective matrix, a special matrix that is
     // used to simulate the distortion of perspective in a camera.
     // Our field of view is 45 degrees, with a width/height
@@ -34,7 +35,7 @@ function drawScene(gl, programInfo, buffers) {
     mat4.translate(
       modelViewMatrix, // destination matrix
       modelViewMatrix, // matrix to translate
-      [-0.0, 0.0, -6.0]
+      [-0.0, -0.0, -5.0]
     ); // amount to translate
   
     // Tell WebGL how to pull out the positions from the position

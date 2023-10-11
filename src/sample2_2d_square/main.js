@@ -2,19 +2,17 @@ import { initBuffers } from "./init-buffers.js";
 import { drawScene } from "./draw-scene.js";
 import { vsSource, fsSource, initShaderProgram} from "./shader.js";
 
-main();
+window.onload = main;
 
-//
-// start here
-//
 function main() {
-  const canvas = document.querySelector("#glcanvas");
-  // Set the canvas to the size of the screen
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  
-  // Initialize the GL context
+  const canvas = document.getElementById("glcanvas");
+
   const gl = canvas.getContext("webgl2");
+  
+  const width = gl.canvas.clientWidth;
+  const height = gl.canvas.clientHeight;
+  gl.canvas.width = width;
+  gl.canvas.height = height;
 
   // Only continue if WebGL is available and working
   if (gl === null) {
@@ -24,10 +22,10 @@ function main() {
     return;
   }
 
-  // Set clear color to black, fully opaque
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  // Clear the color buffer with specified clear color
-  gl.clear(gl.COLOR_BUFFER_BIT);
+  // // Set clear color to black, fully opaque
+  // gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  // // Clear the color buffer with specified clear color
+  // gl.clear(gl.COLOR_BUFFER_BIT);
 
   // Initialize a shader program; this is where all the lighting
   // for the vertices and so forth is established.
@@ -50,10 +48,7 @@ function main() {
     },
   };
 
-  // Here's where we call the routine that builds all the
-  // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  // Draw the scene
   drawScene(gl, programInfo, buffers);
 }

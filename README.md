@@ -2,6 +2,7 @@
 
 * sample0_hello_world_canvas
 * sample1_hello_world_webgl
+* sample2_2d_square
 * sample13
     * 2d square vbo (without vao)
 * sample14
