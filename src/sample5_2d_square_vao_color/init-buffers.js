@@ -12,6 +12,13 @@ function initBuffers(gl, program) {
   // it tells gl context how to interpret the data in shader
   gl.vertexAttribPointer(program.aVertexPosition, 2, gl.FLOAT, false, 0, 0);
 
+  // VBO (color)
+  const colorBuffer = initColorBuffer(gl);
+  //// Provide instructions for VAO to use data later in draw
+  gl.enableVertexAttribArray(program.aVertexColor);
+  gl.vertexAttribPointer(program.aVertexColor, 3, gl.FLOAT, false, 0, 0);  
+  
+
   // IBO
   const [indexBuffer, index_array_size] = initIndexBuffer(gl);
 
@@ -69,6 +76,19 @@ function initPositionBuffer(gl) {
   return positionBuffer;
 }
 
+function initColorBuffer(gl){
+      // vertex color
+      const colors = [
+        1.0,  0.0,  0.0,    // 赤
+        0.0,  0.0,  1.0,    // 青
+        0.0,  1.0,  0.0,    // 緑
+        1.0,  1.0,  1.0,    // 白
+      ];
+      
+      const colorVertexBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, colorVertexBuffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+  }
 
 // IBO
 function initIndexBuffer(gl) {
@@ -78,6 +98,5 @@ function initIndexBuffer(gl) {
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
   return [indexBuffer, indices.length];
 }
-
 
 export { initBuffers };

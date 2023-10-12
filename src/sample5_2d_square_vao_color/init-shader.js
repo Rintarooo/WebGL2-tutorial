@@ -28,6 +28,7 @@ function initShaderProgram(gl) {
   // We attach the location of these shader values to the program instance
   // for easy access later in the code
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
+  program.aVertexColor = gl.getAttribLocation(program, 'aVertexColor');
   return program;
 }
   
