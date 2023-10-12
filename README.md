@@ -1,4 +1,4 @@
-# My WebGL
+# My WebGL2 Tutorial
 
 * sample0_hello_world_canvas
 * sample1_hello_world_webgl
@@ -11,12 +11,6 @@
     * VAO(vertex position) + IBO
 * sample5_2d_square_vao_color
     * VAO(vertex position + vertex color) + IBO
-* sample13
-    * 2d square vbo (without vao)
-* sample14
-    * 2d square vao
-* sample15
-    * 2d square color vao
 * sample16
     * 3d cube vao
 * sample17
