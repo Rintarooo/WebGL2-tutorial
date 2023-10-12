@@ -13,6 +13,7 @@
     * VAO(vertex position + vertex color) + IBO
 * sample6_3d_cube
     * 3d cube vao, cam lookat
+    * import glMatrix
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
     * https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample5
     * https://github.com/sessamekesh/IndigoCS-webgl-tutorials/blob/dff2ce9800d5cabc5bf8e226b8fce1df0df2f489/02%20-%20Rotating%20Cube/app.js#L189-L197

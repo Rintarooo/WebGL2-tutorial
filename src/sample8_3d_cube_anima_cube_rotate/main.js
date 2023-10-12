@@ -1,6 +1,6 @@
 import { initShaderProgram } from "./init-shader.js";
 import { initBuffers } from "./init-buffers.js";
-import { initTransforms, updateTransforms } from "./init-transforms.js";
+import { initTransforms, updateTransforms } from "./do-transforms.js";
 import { drawScene } from "./draw-scene.js";
 
 // Call init once the webpage has loaded

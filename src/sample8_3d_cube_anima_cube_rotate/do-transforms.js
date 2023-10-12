@@ -23,11 +23,6 @@ function updateTransforms(gl, program, degree){
 		viewMatrix = mat4.create(),
 		modelMatrix = mat4.create();
 	
-	// // cos, sin関数に入力
-	// const 
-	// 	camPosX = radius * Math.cos(radian),
-	// 	camPosZ = radius * Math.sin(radian);
-	
 	mat4.translate(
 		modelMatrix, // destination matrix
 		modelMatrix, // matrix to translate
@@ -53,7 +48,6 @@ function updateTransforms(gl, program, degree){
 		[0, 0, 1]// axis to rotate around (Z)
 	);
 
-	// console.log("mo " + degree + " degrees: " + camPosX + ", Sine of " + degree + " degrees: " + camPosY);
 	const 
 		camPos = [1.4, 1.1, 3.1],
 		camAim = [0, 0, 0],
