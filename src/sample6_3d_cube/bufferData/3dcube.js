@@ -91,6 +91,5 @@ const indices = [
     20, 21, 22,
     20, 22, 23
 ];
-
     
 export {positions, colors, indices};

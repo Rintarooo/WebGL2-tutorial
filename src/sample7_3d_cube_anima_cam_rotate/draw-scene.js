@@ -1,4 +1,9 @@
-function draw(gl, program, buffers) {
+function drawScene(gl, program, buffers) {
+  const width = gl.canvas.clientWidth;
+  const height = gl.canvas.clientHeight;
+  gl.canvas.width = width;
+  gl.canvas.height = height;
+
   const clearColor = [0.7,0.7,0.7];
   gl.clearColor(...clearColor, 1); 
   gl.clearDepth(1.0); // Clear everything
@@ -13,7 +18,7 @@ function draw(gl, program, buffers) {
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.ibo);
 
   // Draw to the scene using triangle primitives
-  // console.log( buffers.index_array_size);
+  // console.log( buffers.index_array_size );
   gl.drawElements(gl.TRIANGLES, buffers.index_array_size, gl.UNSIGNED_SHORT, 0);
 
   // Clean
@@ -22,4 +27,4 @@ function draw(gl, program, buffers) {
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 }
 
-export { draw };
+export { drawScene };

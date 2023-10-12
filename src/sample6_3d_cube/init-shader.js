@@ -1,7 +1,6 @@
 import vsSource from './shaders/vertex-shader-glsl.js';
 import fsSource from './shaders/fragment-shader-glsl.js';
 
-
 function loadShader(gl, type, source) {
   const shader = gl.createShader(type);
 
@@ -38,6 +37,7 @@ function initShaderProgram(gl) {
 
   // Use this program instance
   gl.useProgram(program);
+
   // We attach the location of these shader values to the program instance for easy access later in the code
   attachAttrib(gl, program);
   return program;
@@ -49,4 +49,5 @@ function attachAttrib(gl, program) {
   program.uProjectionMatrix = gl.getUniformLocation(program, "uProjectionMatrix")
   program.uModelViewMatrix = gl.getUniformLocation(program, "uModelViewMatrix")
 }
+
 export { initShaderProgram };
