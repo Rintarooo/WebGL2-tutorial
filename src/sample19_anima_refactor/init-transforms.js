@@ -1,11 +1,17 @@
-function initTransforms(gl, program, degree){
-      const fieldOfView = (60 * Math.PI) / 180; // in radians
-      const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-      const zNear = 0.1;
-      const zFar = 1000.0;
-      const projectionMatrix = mat4.create();
-      mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
+function deg2rad(x){
+  return (x * Math.PI) / 180; 
+}
 
+function initTransforms(gl, program, degree){
+  const 
+    fov = 60,
+    aspect = gl.canvas.clientWidth / gl.canvas.clientHeight,
+    zNear = 0.1,
+    zFar = 1000.0,
+    projectionMatrix = mat4.create(),
+    modelViewMatrix = mat4.create();
+  mat4.perspective(projectionMatrix, deg2rad(fov), aspect, zNear, zFar);
+  
       // let camPos = [1.45,1.1,3.1];
       
       // 360で割った余りを計算
@@ -22,7 +28,7 @@ function initTransforms(gl, program, degree){
       
       let camAim = [0,0,0]
       let camUp = [0, 1, 0];
-      const modelViewMatrix = mat4.create();
+      // const modelViewMatrix = mat4.create();
       mat4.lookAt(modelViewMatrix, camPos, camAim, camUp);
     
       // Set the shader uniforms

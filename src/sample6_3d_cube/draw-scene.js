@@ -16,7 +16,7 @@ function draw(gl, program, buffers) {
   // console.log( buffers.index_array_size);
   gl.drawElements(gl.TRIANGLES, buffers.index_array_size, gl.UNSIGNED_SHORT, 0);
 
-  // Clean
+  // UnBind
   gl.bindVertexArray(null);
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
