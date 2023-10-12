@@ -19,7 +19,8 @@ function updateTransforms(gl, program, degree){
 	const 
 		radian = deg2rad(degree % 360),
 		radius = 3.0,
-    modelViewMatrix = mat4.create();
+    modelViewMatrix = mat4.create(),
+		viewMatrix = mat4.create();
 	
 	// cos, sin関数に入力
 	const 
@@ -31,7 +32,10 @@ function updateTransforms(gl, program, degree){
 		camPos = [camPosX, 1.1, camPosZ],
 		camAim = [0, 0, 0],
 		camUp = [0, 1, 0];
-	mat4.lookAt(modelViewMatrix, camPos, camAim, camUp);
+	mat4.lookAt(viewMatrix, camPos, camAim, camUp);
+
+	mat4.multiply(modelViewMatrix, viewMatrix, modelViewMatrix);
+
 
 	// Set the shader uniforms
 	gl.uniformMatrix4fv(program.uModelViewMatrix, false, modelViewMatrix);
