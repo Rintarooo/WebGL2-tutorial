@@ -19,6 +19,8 @@
     * https://github.com/Rintarooo/OpenGLCourseJP/blob/8c44261979c88b02b6ba0d373ec07963b5126d3a/src/shading_models/main.cpp#L341-L353
 * sample7_3d_cube_animation_cam_rotate
     * animation, 3d cube, camera position rotate around y axis
+* sample8_3d_cube_animation_cube_rotate
+    * animation, 3d cube, cube itself rotate around y axis
 * sample20_phong
     * animation, 3d cube rotate around y axis, shading
 * sample22_cube_mouse
