@@ -1,38 +1,37 @@
 import {positions, colors, indices} from './bufferData/3dcube.js';
 
 function initBuffers(gl, program) {  
+  // Create VAO instance
+  const cubeVAO = gl.createVertexArray();
+  // Bind VAO
+  gl.bindVertexArray(cubeVAO);
 
-    // Create VAO instance
-    const cubeVAO = gl.createVertexArray();
-    // Bind VAO
-    gl.bindVertexArray(cubeVAO);
+  // VBO position
+  const positionBuffer = initPositionBuffer(gl);
+  // it tells gl context how to interpret the data in shader
+  gl.vertexAttribPointer(program.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(program.aVertexPosition);
 
-    // VBO position
-    const positionBuffer = initPositionBuffer(gl);
-    //// Provide instructions for VAO to use data later in draw
-    gl.enableVertexAttribArray(program.aVertexPosition);
-    gl.vertexAttribPointer(program.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+  // VBO color
+  const colorBuffer = initColorBuffer(gl);
+  // it tells gl context how to interpret the data in shader
+  gl.vertexAttribPointer(program.aVertexColor, 3, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(program.aVertexColor);
+  
+  // IBO
+  const [indexBuffer, index_array_size] = initIndexBuffer(gl);
 
-    // VBO color
-    const colorBuffer = initColorBuffer(gl);
-    //// Provide instructions for VAO to use data later in draw
-    gl.enableVertexAttribArray(program.aVertexColor);
-    gl.vertexAttribPointer(program.aVertexColor, 3, gl.FLOAT, false, 0, 0);
-    
-    // IBO
-    const [indexBuffer, index_array_size] = initIndexBuffer(gl);
+  // UnBind
+  gl.bindVertexArray(null);
+  gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 
-    // UnBind
-    gl.bindVertexArray(null);
-    gl.bindBuffer(gl.ARRAY_BUFFER, null);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
-
-    return {
-      vao: cubeVAO,
-      ibo: indexBuffer,
-      index_array_size: index_array_size
-    };
-  }
+  return {
+    vao: cubeVAO,
+    ibo: indexBuffer,
+    index_array_size: index_array_size
+  };
+}
 
 // VBO position
 function initPositionBuffer(gl) {

@@ -1,12 +1,16 @@
-function draw(gl, program, buffers) {
+function drawScene(gl, program, buffers) {
+  const width = gl.canvas.clientWidth;
+  const height = gl.canvas.clientHeight;
+  gl.canvas.width = width;
+  gl.canvas.height = height;
+
   const clearColor = [0.7,0.7,0.7];
   gl.clearColor(...clearColor, 1); 
   gl.clearDepth(1.0); // Clear everything
   gl.enable(gl.DEPTH_TEST); // Enable depth testing
   gl.depthFunc(gl.LEQUAL); // Near things obscure far things
-  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);  
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-
 
   // Bind the VAO
   gl.bindVertexArray(buffers.vao);
@@ -22,4 +26,4 @@ function draw(gl, program, buffers) {
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 }
 
-export { draw };
+export { drawScene };

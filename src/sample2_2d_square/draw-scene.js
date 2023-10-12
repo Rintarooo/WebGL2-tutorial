@@ -1,4 +1,4 @@
-function drawScene(gl, program, buffers) {
+function drawScene(gl, program, buffers) {  
   const clearColor = [0.7,0.7,0.7];
   gl.clearColor(...clearColor, 1);
   gl.clear(gl.COLOR_BUFFER_BIT);

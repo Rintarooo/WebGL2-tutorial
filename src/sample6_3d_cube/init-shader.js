@@ -38,13 +38,15 @@ function initShaderProgram(gl) {
 
   // Use this program instance
   gl.useProgram(program);
-  // We attach the location of these shader values to the program instance
-  // for easy access later in the code
+  // We attach the location of these shader values to the program instance for easy access later in the code
+  attachAttrib(gl, program);
+  return program;
+}
+
+function attachAttrib(gl, program) {
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
   program.aVertexColor = gl.getAttribLocation(program, "aVertexColor")
   program.uProjectionMatrix = gl.getUniformLocation(program, "uProjectionMatrix")
   program.uModelViewMatrix = gl.getUniformLocation(program, "uModelViewMatrix")
-  return program;
 }
-
 export { initShaderProgram };

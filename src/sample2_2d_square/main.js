@@ -7,6 +7,8 @@ window.onload = main;
 
 function main() {
   const canvas = document.getElementById("glcanvas");
+  // canvas.width = 500;//window.innerWidth;
+  // canvas.height = 500;//window.innerHeight;
 
   const gl = canvas.getContext("webgl2");
   if (gl === null) {
@@ -21,8 +23,6 @@ function main() {
   const height = gl.canvas.clientHeight;
   gl.canvas.width = width;
   gl.canvas.height = height;
-  // canvas.width = 500;//window.innerWidth;
-  // canvas.height = 500;//window.innerHeight;
 
   // Initialize a shader program object
   const program = initShaderProgram(gl);
