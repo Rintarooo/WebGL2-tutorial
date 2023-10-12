@@ -1,21 +1,22 @@
+import { mouse, wheel } from "./callback-events.js";
+
 function deg2rad(x){
   return (x * Math.PI) / 180; 
 }
 
 function initTransforms(gl, program){
+	return null;   // pass
+}
+
+function updateTransforms(gl, program, degree){
   const 
-    fov = 60,
+    fov = Math.abs(wheel) % 180,//60,
     aspect = gl.canvas.clientWidth / gl.canvas.clientHeight,
     zNear = 0.1,
     zFar = 1000.0,
     projectionMatrix = mat4.create();
   mat4.perspective(projectionMatrix, deg2rad(fov), aspect, zNear, zFar);
-  
-  // Set the shader uniforms
-  gl.uniformMatrix4fv(program.uProjectionMatrix, false, projectionMatrix);
-}
 
-function updateTransforms(gl, program, degree){
 	const 
 		radian = deg2rad(degree % 360),
 		rotate_scale_y= 1.0,
@@ -48,17 +49,29 @@ function updateTransforms(gl, program, degree){
 		[0, 0, 1]// axis to rotate around (Z)
 	);
 
+	const radius = 5.0;
 	const 
-		camPos = [1.4, 1.1, 3.1],
-		camAim = [0, 0, 0],
-		camUp = [0, 1, 0];
+		azimuth = mouse.x % 90, 
+		elevation = mouse.y % 90;
+	const 
+		phi = deg2rad(90 - elevation),
+		theta = deg2rad(azimuth);
+	const
+		camPosX = radius * Math.sin(phi) * Math.cos(theta),
+		camPosY = radius * Math.cos(phi),
+		camPosZ = radius * Math.sin(phi) * Math.sin(theta);
+	// console.log("camPosX: " + camPosX + ", camPosZ: " + camPosZ);
+	const camPos = [camPosX, camPosY, camPosZ],
+				camAim = [0, 0, 0],//[0, 0, -1.0],
+				camUp = [0, 1, 0];
 	mat4.lookAt(viewMatrix, camPos, camAim, camUp);
 
 	// mat4.multiply(out, a, b);
 	// a: 左側の行列, b: 右側の行列
 	mat4.multiply(modelViewMatrix, viewMatrix, modelMatrix);
 
-	// Set the shader uniforms
+  // Set the shader uniforms
+  gl.uniformMatrix4fv(program.uProjectionMatrix, false, projectionMatrix);
 	gl.uniformMatrix4fv(program.uModelViewMatrix, false, modelViewMatrix);
 }
 
