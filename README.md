@@ -22,6 +22,9 @@
     * animation, 3d cube, camera position rotate around y axis
 * sample8_3d_cube_animation_cube_rotate
     * animation, 3d cube, cube itself rotate around y axis
+* sample9_3d_cube_orbit_cam
+    * 3d cube rotate around y axis, mouse and wheel func, orbit camera
+
 * sample20_phong
     * animation, 3d cube rotate around y axis, shading
 * sample22_cube_mouse
