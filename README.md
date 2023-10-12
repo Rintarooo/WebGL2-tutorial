@@ -11,10 +11,8 @@
     * VAO(vertex position) + IBO
 * sample5_2d_square_vao_color
     * VAO(vertex position + vertex color) + IBO
-* sample16
-    * 3d cube vao
-* sample17
-    * 3d cube vao, lookat
+* sample6_3d_cube
+    * 3d cube vao, cam lookat
 * sample19_anima_refactor
     * animation, 3d cube rotate around y axis
 * sample20_phong
