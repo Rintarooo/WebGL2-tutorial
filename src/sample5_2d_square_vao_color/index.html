@@ -1,24 +1,27 @@
-<!-- https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context -->
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>WebGL Demo</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
       integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
       crossorigin="anonymous"
       defer
     ></script>
-    <style>
-        body {
-          margin: 0;
-          overflow: hidden;
-        }
-      </style>
-    <script src="main.js" type="module"></script>
+    <script src="./main.js" type="module"></script>
   </head>
   <body>
-    <!-- <h1>描画領域</h1>
-    <p>WebGLで描画します</p> -->
     <canvas id="glcanvas"></canvas>
   </body>
 </html>
