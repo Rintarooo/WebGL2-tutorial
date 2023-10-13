@@ -24,11 +24,13 @@
     * animation, 3d cube, cube itself rotate around y axis
 * sample9_3d_cube_orbit_cam
     * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera
+* sample10_3d_cube_orbit_cam_phong
+    * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera, phong shading
 
-* sample20_phong
+<!-- * sample20_phong
     * animation, 3d cube rotate around y axis, shading
 * sample22_cube_mouse
     * animation, 3d cube rotate around y axis, shading, mouse func
     * canvas resize
 * sample23_orbit_cam
-    * animation, 3d cube rotate around y axis, shading, mouse func, orbit camera
+    * animation, 3d cube rotate around y axis, shading, mouse func, orbit camera -->
