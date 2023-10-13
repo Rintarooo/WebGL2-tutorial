@@ -7,11 +7,11 @@ function initLights(gl, program) {
   // (http://www.barradeau.com/nicoptere/dump/materials.html)
   
   const 
-      shininess = 0.7,//10,
+      shininess = 1.0,//10,
       lightColor = [1, 1, 1, 1],
-      lightAmbient = [0.1, 0.1, 0.1, 1],//[0.03, 0.03, 0.03, 1],
+      lightAmbient = [1, 1, 1, 1],//[0.1, 0.1, 0.1, 1],//[0.03, 0.03, 0.03, 1],
       lightSpecular = [1, 1, 1, 1],
-      lightPositon = [0, 1, 0],//[2.2, 1.4, -1],//[-0.6, -0.8, -1.4],//[-0.6, -1.5, -2.4],//[-3.0, -3.0, -3.0],
+      lightPositon = [0, 9, 6],//[2.2, 1.4, -1],//[-0.6, -0.8, -1.4],//[-0.6, -1.5, -2.4],//[-3.0, -3.0, -3.0],
       materialDiffuse = [0.507, 0.507, 0.507, 1],//[46 / 256, 99 / 256, 191 / 256, 1],
       materialAmbient = [0.192, 0.192, 0.192, 1],//[1, 1, 1, 1],
       materialSpecular = [0.508, 0.508, 0.508, 1];//[1, 1, 1, 1];

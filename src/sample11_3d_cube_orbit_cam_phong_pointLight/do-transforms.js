@@ -77,7 +77,8 @@ function updateTransforms(gl, program, degree){
 
   // Set the shader uniforms
   gl.uniformMatrix4fv(program.uProjectionMatrix, false, projectionMatrix);
-	gl.uniformMatrix4fv(program.uModelViewMatrix, false, modelViewMatrix);
+	gl.uniformMatrix4fv(program.uViewMatrix, false, viewMatrix);
+	gl.uniformMatrix4fv(program.uModelMatrix, false, modelMatrix);
 	gl.uniformMatrix4fv(program.uNormalMatrix, false, normalMatrix);
 }
 

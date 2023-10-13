@@ -49,7 +49,8 @@ function attachAttrib(gl, program){
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
   program.aVertexNormal = gl.getAttribLocation(program, 'aVertexNormal');
   program.uProjectionMatrix = gl.getUniformLocation(program, 'uProjectionMatrix');
-  program.uModelViewMatrix = gl.getUniformLocation(program, 'uModelViewMatrix');
+  program.uViewMatrix = gl.getUniformLocation(program, 'uViewMatrix');
+  program.uModelMatrix = gl.getUniformLocation(program, 'uModelMatrix');
   program.uNormalMatrix = gl.getUniformLocation(program, 'uNormalMatrix');
   program.uMaterialAmbient = gl.getUniformLocation(program, 'uMaterialAmbient');
   program.uMaterialDiffuse = gl.getUniformLocation(program, 'uMaterialDiffuse');
