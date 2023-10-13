@@ -1,7 +1,6 @@
 var mouse = { x: -20, y: 20 };
 var wheel = 45;//1;  // 初期のスケール値
 // azimuth（方位角）とelevation（仰角）
-// var orbit = { azi: 0., ele: 0. };
 
 import { isDragging } from "./main.js";
 

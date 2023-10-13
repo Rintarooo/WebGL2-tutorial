@@ -26,6 +26,7 @@
     * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera
 * sample10_3d_cube_orbit_cam_phong
     * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera, phong shading
+    * https://github.com/Rintarooo/Real-Time-3D-Graphics-with-WebGL-2/blob/6a86cecafe1f50e079869920490cc48f8b97b32d/common/js/utils.js#L79-L143
 
 <!-- * sample20_phong
     * animation, 3d cube rotate around y axis, shading

@@ -44,10 +44,22 @@ function initShaderProgram(gl) {
 }
 
 function attachAttrib(gl, program){
+  //  gl.getAttribLocation(): attribute 変数名 (name) を指定して、attribute変数がどの位置（インデックス）にバインドされているかを問い合わせる。
+  // この位置（インデックス）とは、頂点データをGPU（vertex shader側）に送信するときに、GPUがシェーダープログラム内の特定の属性変数を識別するための一種の識別子、または参照するもの。
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
-  program.aVertexColor = gl.getAttribLocation(program, "aVertexColor")
-  program.uProjectionMatrix = gl.getUniformLocation(program, "uProjectionMatrix")
-  program.uModelViewMatrix = gl.getUniformLocation(program, "uModelViewMatrix")
+  program.aVertexNormal = gl.getAttribLocation(program, 'aVertexNormal');
+  program.uProjectionMatrix = gl.getUniformLocation(program, 'uProjectionMatrix');
+  program.uModelViewMatrix = gl.getUniformLocation(program, 'uModelViewMatrix');
+  program.uNormalMatrix = gl.getUniformLocation(program, 'uNormalMatrix');
+  program.uMaterialAmbient = gl.getUniformLocation(program, 'uMaterialAmbient');
+  program.uMaterialDiffuse = gl.getUniformLocation(program, 'uMaterialDiffuse');
+  program.uMaterialSpecular = gl.getUniformLocation(program, 'uMaterialSpecular');
+  program.uShininess = gl.getUniformLocation(program, 'uShininess');
+  program.uLightAmbient = gl.getUniformLocation(program, 'uLightAmbient');
+  program.uLightDiffuse = gl.getUniformLocation(program, 'uLightDiffuse');
+  program.uLightSpecular = gl.getUniformLocation(program, 'uLightSpecular');
+  program.uLightDirection = gl.getUniformLocation(program, 'uLightDirection');
+  
 }
 
 export { initShaderProgram };

@@ -51,23 +51,6 @@ const positions = [
     -0.5, 0.5, -0.5,
     ];
 
-const faceColors = [
-    [1.0, 1.0, 1.0], // Front face: white
-    [1.0, 0.0, 0.0], // Back face: red
-    [0.0, 1.0, 0.0], // Top face: green
-    [0.0, 0.0, 1.0], // Bottom face: blue
-    [1.0, 1.0, 0.0], // Right face: yellow
-    [1.0, 0.0, 1.0], // Left face: purple
-    ];
-
-    var colors = [];
-
-    for (var j = 0; j < faceColors.length; ++j) {
-    const c = faceColors[j];
-    // Repeat each color four times for the four vertices of the face
-    colors = colors.concat(c, c, c, c);
-    }
-
 // This array defines each face as two triangles, using the
 // indices into the vertex array to specify each triangle's
 // position.
@@ -92,4 +75,4 @@ const indices = [
     20, 22, 23
 ];
    
-export {positions, colors, indices};
+export {positions, indices};

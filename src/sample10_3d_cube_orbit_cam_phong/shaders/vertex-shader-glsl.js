@@ -5,16 +5,23 @@
 
  // Supplied vertex position attribute
  in vec3 aVertexPosition;
- in vec3 aVertexColor;
+ in vec3 aVertexNormal;
+
  uniform mat4 uModelViewMatrix;
  uniform mat4 uProjectionMatrix;
- out vec4 vVertexColor;
+ uniform mat4 uNormalMatrix;
+
+ out vec3 vNormal;
+ out vec3 vEyeVector;
 
  void main(void) {
    // Set the position in clipspace coordinates
-   gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
-   vVertexColor = vec4(aVertexColor, 1.0);
- }
+  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
+
+  vec4 vertex = uModelViewMatrix * vec4(aVertexPosition, 1.0);
+  vNormal = vec3(uNormalMatrix * vec4(aVertexNormal, 1.0));
+  vEyeVector = -vec3(vertex.xyz);
+}
 `;
 
 export default vsSource;

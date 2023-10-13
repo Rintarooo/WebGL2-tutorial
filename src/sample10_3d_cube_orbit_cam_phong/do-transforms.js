@@ -22,7 +22,8 @@ function updateTransforms(gl, program, degree){
 		rotate_scale_y= 1.0,
     modelViewMatrix = mat4.create(),
 		viewMatrix = mat4.create(),
-		modelMatrix = mat4.create();
+		modelMatrix = mat4.create(),
+		normalMatrix = mat4.create();
 	
 	mat4.translate(
 		modelMatrix, // destination matrix
@@ -70,9 +71,14 @@ function updateTransforms(gl, program, degree){
 	// a: 左側の行列, b: 右側の行列
 	mat4.multiply(modelViewMatrix, viewMatrix, modelMatrix);
 
+	mat4.copy(normalMatrix, modelViewMatrix);
+	mat4.invert(normalMatrix, normalMatrix);
+	mat4.transpose(normalMatrix, normalMatrix);
+
   // Set the shader uniforms
   gl.uniformMatrix4fv(program.uProjectionMatrix, false, projectionMatrix);
 	gl.uniformMatrix4fv(program.uModelViewMatrix, false, modelViewMatrix);
+	gl.uniformMatrix4fv(program.uNormalMatrix, false, normalMatrix);
 }
 
 export { initTransforms, updateTransforms };

@@ -1,4 +1,5 @@
-import {positions, colors, indices} from './bufferData/3dcube.js';
+import {positions, indices} from './bufferData/3dcube.js';
+import calculateNormals from './calc-normal.js'
 
 function initBuffers(gl, program) {  
   // Create VAO instance
@@ -12,11 +13,11 @@ function initBuffers(gl, program) {
   gl.vertexAttribPointer(program.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(program.aVertexPosition);
 
-  // VBO color
-  const colorBuffer = initColorBuffer(gl);
+  // VBO normal
+  const normalBuffer = initNormalBuffer(gl);
   // it tells gl context how to interpret the data in shader
-  gl.vertexAttribPointer(program.aVertexColor, 3, gl.FLOAT, false, 0, 0);
-  gl.enableVertexAttribArray(program.aVertexColor);
+  gl.enableVertexAttribArray(program.aVertexNormal);
+  gl.vertexAttribPointer(program.aVertexNormal, 3, gl.FLOAT, false, 0, 0);
   
   // IBO
   const [indexBuffer, index_array_size] = initIndexBuffer(gl);
@@ -41,12 +42,13 @@ function initPositionBuffer(gl) {
   return positionBuffer;
 }
 
-// VBO color
-function initColorBuffer(gl) {
-  const colorBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-  return colorBuffer;
+// VBO normal
+function initNormalBuffer(gl) {
+  const normalBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
+  const normals = calculateNormals(positions, indices);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normals), gl.STATIC_DRAW);
+  return normalBuffer;
 }
 
 // IBO

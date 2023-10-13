@@ -1,6 +1,7 @@
 import { initShaderProgram } from "./init-shader.js";
 import { initBuffers } from "./init-buffers.js";
 import { initTransforms, updateTransforms } from "./do-transforms.js";
+import { initLights } from "./init-lighting.js";
 import { drawScene } from "./draw-scene.js";
 import { callbackEventZoom, callbackEventMouseMove } from "./callback-events.js";
 
@@ -33,6 +34,7 @@ function main() {
 
   const program = initShaderProgram(gl);
   const buffers = initBuffers(gl, program);
+  initLights(gl, program);
   initTransforms(gl, program);
   let 
     deltaTime,
