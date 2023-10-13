@@ -40,7 +40,7 @@ function updateTransforms(gl, program, degree){
 	mat4.rotate(
 		modelMatrix,
 		modelMatrix,
-		radian * rotate_scale_y,
+		0,//radian * rotate_scale_y,
 		[0, 1, 0]// axis to rotate around (Y)
 	);
 	mat4.rotate(

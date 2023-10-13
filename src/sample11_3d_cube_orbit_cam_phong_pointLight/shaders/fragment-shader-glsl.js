@@ -4,7 +4,7 @@ const fsSource =
 precision mediump float;
 
 uniform float uShininess;
-uniform vec3 uLightDirection;
+uniform vec3 uLightPosition;
 uniform vec4 uLightAmbient;
 uniform vec4 uLightDiffuse;
 uniform vec4 uLightSpecular;
@@ -15,12 +15,13 @@ uniform vec4 uMaterialSpecular;
 
 in vec3 vNormal;
 in vec3 vEyeVector;
+in vec3 vLightRay;
 
 out vec4 FragColor;
 
 void main(void) {
   // Normalized light direction
-  vec3 L = normalize(uLightDirection);
+  vec3 L = normalize(vLightRay);
 
   // Normalized normal
   vec3 N = normalize(vNormal);

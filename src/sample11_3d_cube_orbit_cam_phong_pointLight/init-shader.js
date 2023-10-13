@@ -58,7 +58,7 @@ function attachAttrib(gl, program){
   program.uLightAmbient = gl.getUniformLocation(program, 'uLightAmbient');
   program.uLightDiffuse = gl.getUniformLocation(program, 'uLightDiffuse');
   program.uLightSpecular = gl.getUniformLocation(program, 'uLightSpecular');
-  program.uLightDirection = gl.getUniformLocation(program, 'uLightDirection');
+  program.uLightDirection = gl.getUniformLocation(program, 'uLightPosition');
   
 }
 
