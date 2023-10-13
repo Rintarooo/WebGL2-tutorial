@@ -40,7 +40,7 @@ function updateTransforms(gl, program, degree){
 	mat4.rotate(
 		modelMatrix,
 		modelMatrix,
-		0,//radian * rotate_scale_y,
+		radian * rotate_scale_y,
 		[0, 1, 0]// axis to rotate around (Y)
 	);
 	mat4.rotate(
@@ -57,11 +57,18 @@ function updateTransforms(gl, program, degree){
 	const 
 		phi = deg2rad(90 - elevation),
 		theta = deg2rad(azimuth);
+
 	const
 		camPosX = radius * Math.sin(phi) * Math.cos(theta),
 		camPosY = radius * Math.cos(phi),
 		camPosZ = radius * Math.sin(phi) * Math.sin(theta);
 	// console.log("camPosX: " + camPosX + ", camPosZ: " + camPosZ);
+
+	// const 
+	// 	camPosX = 0,//radius * Math.cos(radian),
+	// 	camPosY = 1.6,//1.1,
+	// 	camPosZ = 4.0;//radius * Math.sin(radian);
+
 	const camPos = [camPosX, camPosY, camPosZ],
 				camAim = [0, 0, 0],//[0, 0, -1.0],
 				camUp = [0, 1, 0];
