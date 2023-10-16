@@ -1,5 +1,5 @@
 var mouse = { x: -20, y: 20 };
-var wheel = 45;//1;  // 初期のスケール値
+var wheel = 60;//45;//1;  // 初期のスケール値
 // azimuth（方位角）とelevation（仰角）
 
 import { isDragging } from "./main.js";
@@ -30,8 +30,8 @@ function callbackEventZoom(event) {
     // ctx.scale(wheel, wheel);
     // ctx.translate(-x, -y);
 
-    // ここでキャンバスを再描画するなどの処理を追加...
-    console.log("event.clientX: " + event.clientX + "\nevent.target.offsetLeft: " + event.target.offsetLeft)
+    // // ここでキャンバスを再描画するなどの処理を追加...
+    // console.log("event.clientX: " + event.clientX + "\nevent.target.offsetLeft: " + event.target.offsetLeft)
 }
 
 function callbackEventMouseMove(event) {
@@ -58,7 +58,7 @@ function callbackEventMouseMove(event) {
         // orbit.azi = mouse.x
         // orbit.ele = 
     }
-    console.log("mouse.x: " + mouse.x + "\nmouse.y: " + mouse.y)
+    // console.log("mouse.x: " + mouse.x + "\nmouse.y: " + mouse.y)
 }
 
 
