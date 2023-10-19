@@ -16,7 +16,6 @@ function main() {
     return;
   }
 
-  // https://webglfundamentals.org/webgl/lessons/webgl-anti-patterns.html
   const width = gl.canvas.clientWidth;
   const height = gl.canvas.clientHeight;
   gl.canvas.width = width;

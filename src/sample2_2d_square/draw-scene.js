@@ -10,9 +10,11 @@ function drawScene(gl, program, buffers) {
   gl.vertexAttribPointer(program.aVertexPosition, buffers.position_dim, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(program.aVertexPosition);
     
-  const offset = 0;
-  const vertexCount = 4;
-  gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+  const 
+    primitiveType = gl.TRIANGLE_STRIP,// 描画するプリミティブの種類
+    offset = 0,// 配列の左から何番目の頂点から描画するか
+    vertexCount = 4;// 描画する頂点の個数
+  gl.drawArrays(primitiveType, offset, vertexCount);
 
   // Unbind VBO
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
