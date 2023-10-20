@@ -12,7 +12,6 @@ function initBuffers(gl) {
   };
 }
 
-
 // VBO position
 function initPositionBuffer(gl) {
   
@@ -34,10 +33,6 @@ function initPositionBuffer(gl) {
     - triangle 1：V0(0.5, 0.5), V1(-0.5, 0.5), V2(0.5, -0.5)
     - triangle 2：V2(0.5, -0.5), V1(-0.5, 0.5), V3(-0.5, -0.5)
 
-    const positions = [0.5, 0.5, 
-                      -0.5, 0.5, 
-                      0.5, -0.5,
-                      -0.5, -0.5];
     */
 
   // Get the viewport's aspect ratio.
@@ -47,6 +42,11 @@ function initPositionBuffer(gl) {
                     -0.3, 0.3 * aspectRatio, 
                     0.3, -0.3 * aspectRatio,
                     -0.3, -0.3 * aspectRatio];
+
+  // const positions = [0.5, 0.5, 
+  //                   -0.5, 0.5, 
+  //                    0.5, -0.5,
+  //                   -0.5, -0.5];
 
   const positionBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);

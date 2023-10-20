@@ -9,13 +9,13 @@ function initBuffers(gl, program) {
   // Setting up the VBO (position)
   const positionBuffer = initPositionBuffer(gl);
   gl.enableVertexAttribArray(program.aVertexPosition);
-  // it tells gl context how to interpret the data in shader
+  // VAO pointer points VBO. it tells gl context how to interpret the data in shader
   gl.vertexAttribPointer(program.aVertexPosition, 2, gl.FLOAT, false, 0, 0);
 
   // VBO (color)
   const colorBuffer = initColorBuffer(gl);
-  //// Provide instructions for VAO to use data later in draw
   gl.enableVertexAttribArray(program.aVertexColor);
+  // VAO pointer points VBO. it tells gl context how to interpret the data in shader
   gl.vertexAttribPointer(program.aVertexColor, 3, gl.FLOAT, false, 0, 0);  
   
 
