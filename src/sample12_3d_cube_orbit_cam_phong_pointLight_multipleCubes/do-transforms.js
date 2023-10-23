@@ -46,14 +46,19 @@ function calcMatModel(degree, info_obj_trans){
 		rotate_scale_y= 1.0,
 		modelMatrix = mat4.create();
 
-	console.log(info_obj_trans);
+	// console.log(info_obj_trans);
+	// console.log(radian);
+	console.log(degree);
+	
 	mat4.scale(modelMatrix, modelMatrix, 
 		// [2,2,2]);
 		[info_obj_trans.obj_scale, info_obj_trans.obj_scale, info_obj_trans.obj_scale]);
-	mat4.translate(
+	
+		mat4.translate(
 		modelMatrix, // destination matrix
 		modelMatrix, // matrix to translate
-		[info_obj_trans.offset_x, radian, info_obj_trans.offset_z]// [0.0, radian, 0.0]// [0.0, 0.0, 0.0]
+		// [info_obj_trans.offset_x, radian, info_obj_trans.offset_z]// [0.0, radian, 0.0]// [0.0, 0.0, 0.0]
+		[info_obj_trans.offset_x, degree * info_obj_trans.drop_speed, info_obj_trans.offset_z]// [0.0, radian, 0.0]// [0.0, 0.0, 0.0]
 	); // amount to translate
 
 	mat4.rotate(
@@ -93,13 +98,7 @@ function calcMatView(){
 		camPosY = radius * Math.cos(phi),
 		camPosZ = radius * Math.sin(phi) * Math.sin(theta);
 
-	// const 
-	// 	camPosX = 0,//radius * Math.cos(radian),
-	// 	camPosY = 1.6,//1.1,
-	// 	camPosZ = 4.0;//radius * Math.sin(radian);
-
 	// console.log("camPosX: " + camPosX + ", camPosZ: " + camPosZ);
-
 	const camPos = [camPosX, camPosY, camPosZ],
 				camAim = [0, 0, 0],//[0, 0, -1.0],
 				camUp = [0, 1, 0];
