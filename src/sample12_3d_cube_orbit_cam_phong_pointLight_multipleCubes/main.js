@@ -38,47 +38,28 @@ function main() {
   let 
     deltaTime,
     then = 0,
-    degree = 45;
+    degree = 480;//90;//45;
   const scale_degree = 70;//50;
 
   initTransforms(gl, program, degree);
-  // const	info_obj_trans = {
-	// 	obj0: {offset_x : 0, offset_z : 0, obj_scale: 1},
-	// 	obj1: {offset_x: 0, offset_z : 2, obj_scale: 0.5}
-	// };
-  
-  // const	info_obj_trans = [
-  //   {offset_x : 0, offset_z : 0, obj_scale: 1},
-  //   {offset_x: 0, offset_z : 2, obj_scale: 0.5},
-  //   {offset_x: 2, offset_z : 1, obj_scale: 0.4},
-  //   {offset_x: -2, offset_z : 1, obj_scale: 0.2},
-  //   {offset_x: 4, offset_z : 0.5, obj_scale: 0.1},
-  //   {offset_x: 1.4, offset_z : -2, obj_scale: 1.3},
-  //   {offset_x: 1.8, offset_z : -3, obj_scale: 0.5},
-  // ];
 
   const info_obj_trans = [];
+  const num_cubes = 100;
 
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < num_cubes; i++) {
     const randomOffsetX = Math.random() * 8 - 4; // -4から4までの乱数
-    // const randomOffsetX = Math.random() * 3; // -4から4までの乱数
     const randomOffsetZ = Math.random() * 8 - 4; // -4から4までの乱数
-    // const randomOffsetZ = Math.random() * 3; // -4から4までの乱数
-    // const randomObjScale = Math.random() * 2 - 2; // -4から4までの乱数
-    const randomObjScale = Math.random() * 8 - 4; // -4から4までの乱数
+    const randomObjScale = Math.random() * 0.7;
+    const randomDropSpeed = Math.random() * 0.01;
     const obj = {
       offset_x: randomOffsetX,
       offset_z: randomOffsetZ,
       obj_scale: randomObjScale,
+      drop_speed: randomDropSpeed,
     };
-
     info_obj_trans.push(obj);
   }
 
-
-	// 	obj0:,
-	// 	obj1: {offset_x: 0, offset_z : 2, obj_scale: 0.5}
-	// };  
   function animateLoop(now) {
     // 時間の単位をミリ秒から秒に変換する。
     now *= 0.001;
