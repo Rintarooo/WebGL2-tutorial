@@ -34,6 +34,9 @@
     * animation, 3d cube rotate around y axis, mo_use and wheel func, orbit camera, phong shading, pointLight
 * sample12_3d_cube_orbit_cam_phong_pointLight_multipleCubes/
     * animation, 3d cube rotate around y axis, mo_use and wheel func, orbit camera, phong shading, pointLight, multiple cubes
+* sample13_texture
+    * 3d cube, texture mapping
+    * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
 * threejs/
     * 3d cube
     * https://ics.media/tutorial-three/material_basic/
