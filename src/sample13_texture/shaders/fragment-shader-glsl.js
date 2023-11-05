@@ -11,11 +11,12 @@ uniform vec4 uLightSpecular;
 uniform vec4 uMaterialAmbient;
 uniform vec4 uMaterialDiffuse;
 uniform vec4 uMaterialSpecular;
-
+uniform sampler2D uSampler;
 
 in vec3 vNormal;
 in vec3 vEyeVector;
 in vec3 vLightRay;
+in vec2 vTextureCoord;
 
 out vec4 FragColor;
 
@@ -44,7 +45,10 @@ void main(void) {
 
   // Final fargment color takes into account all light values that
   // were computed within the fragment shader
-  FragColor = vec4(vec3(Ia + Id + Is), 1.0);
+  // FragColor = vec4(vec3(Ia + Id + Is), 1.0);
+  vec4 LightingColor = vec4(vec3(Ia + Id + Is), 1.0);
+  FragColor = LightingColor * texture(uSampler, vTextureCoord);
+  // FragColor = texture(uSampler, vTextureCoord);
 }
 `;
 

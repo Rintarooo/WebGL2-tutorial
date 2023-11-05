@@ -2,6 +2,7 @@ import { initShaderProgram } from "./init-shader.js";
 import { initBuffers } from "./init-buffers.js";
 import { initTransforms, updateTransforms } from "./do-transforms.js";
 import { initLights } from "./init-lighting.js";
+import { initTextures } from "./init-texture.js";
 import { drawScene } from "./draw-scene.js";
 import { callbackEventZoom, callbackEventMouseMove } from "./callback-events.js";
 
@@ -34,6 +35,8 @@ function main() {
 
   const program = initShaderProgram(gl);
   const buffers = initBuffers(gl, program);
+  const tex = initTextures(gl);
+  // gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);// Flip texture image
   initLights(gl, program);
   let 
     deltaTime,
@@ -43,14 +46,15 @@ function main() {
 
   initTransforms(gl, program, degree);
 
+
   const info_obj_trans = [];
-  const num_cubes = 100;
+  const num_cubes = 100;//50;//2;
 
   for (let i = 0; i < num_cubes; i++) {
     const randomOffsetX = Math.random() * 8 - 4; // -4から4までの乱数
     const randomOffsetZ = Math.random() * 8 - 4; // -4から4までの乱数
     const randomObjScale = Math.random() * 0.7;
-    const randomDropSpeed = Math.random() * 0.01;
+    const randomDropSpeed = Math.random() * 0.001;
     const obj = {
       offset_x: randomOffsetX,
       offset_z: randomOffsetZ,
@@ -69,11 +73,10 @@ function main() {
     then = now;
 
     // updateTransforms(gl, program, degree, info_obj_trans);
-    drawScene(gl, program, buffers, degree, info_obj_trans);
+    drawScene(gl, program, buffers, degree, info_obj_trans, tex);
     degree -= scale_degree * deltaTime;  
     requestAnimationFrame(animateLoop);
   }
   requestAnimationFrame(animateLoop);
   
 }
-  

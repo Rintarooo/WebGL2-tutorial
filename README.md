@@ -37,6 +37,8 @@
 * sample13_texture
     * 3d cube, texture mapping
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
+    * https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
+    * https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample6
 * threejs/
     * 3d cube
     * https://ics.media/tutorial-three/material_basic/

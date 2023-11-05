@@ -48,6 +48,7 @@ function attachAttrib(gl, program){
   // この位置（インデックス）とは、頂点データをGPU（vertex shader側）に送信するときに、GPUがシェーダープログラム内の特定の属性変数を識別するための一種の識別子、または参照するもの。
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
   program.aVertexNormal = gl.getAttribLocation(program, 'aVertexNormal');
+  program.aVertexTextureCoord = gl.getAttribLocation(program, "aVertexTextureCoord");
   program.uProjectionMatrix = gl.getUniformLocation(program, 'uProjectionMatrix');
   program.uViewMatrix = gl.getUniformLocation(program, 'uViewMatrix');
   program.uModelMatrix = gl.getUniformLocation(program, 'uModelMatrix');
@@ -60,7 +61,18 @@ function attachAttrib(gl, program){
   program.uLightDiffuse = gl.getUniformLocation(program, 'uLightDiffuse');
   program.uLightSpecular = gl.getUniformLocation(program, 'uLightSpecular');
   program.uLightDirection = gl.getUniformLocation(program, 'uLightPosition');
-  
+  program.uSampler = gl.getUniformLocation(program, "uSampler");
+  // console.log("program.aVertexTextureCoord: " + program.aVertexTextureCoord)
+  // console.log("program.uSampler: " + program.uSampler)
+  // console.log(" program.uLightDirection: " +  program.uLightDirection)
+  // console.log("program.aVertexPosition: " + program.aVertexPosition)
+
+  // if (!program.aVertexTextureCoord) {
+  //   console.log('Failed to get the storage location of aVertexTextureCoord');
+  // }
+  // if (!program.uSampler) {
+  //   console.log('Failed to get the storage location of uSampler');
+  // }
 }
 
 export { initShaderProgram };
