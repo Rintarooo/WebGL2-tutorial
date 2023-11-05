@@ -26,7 +26,6 @@ function initBuffers(gl, program) {
   // it tells gl context how to interpret the data in shader
   gl.vertexAttribPointer(program.aVertexTextureCoord, 2, gl.FLOAT, false, 0, 0)
   
-
   // IBO
   const [indexBuffer, index_array_size] = initIndexBuffer(gl);
   
@@ -34,13 +33,11 @@ function initBuffers(gl, program) {
   gl.bindVertexArray(null);
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
-  // gl.bindTexture(gl.TEXTURE_2D, null);
 
   return {
     vao: cubeVAO,
     ibo: indexBuffer,
     index_array_size: index_array_size,
-    // tex: textureCoordBuffer
   };
 }
 

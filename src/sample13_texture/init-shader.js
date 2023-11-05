@@ -62,17 +62,6 @@ function attachAttrib(gl, program){
   program.uLightSpecular = gl.getUniformLocation(program, 'uLightSpecular');
   program.uLightDirection = gl.getUniformLocation(program, 'uLightPosition');
   program.uSampler = gl.getUniformLocation(program, "uSampler");
-  // console.log("program.aVertexTextureCoord: " + program.aVertexTextureCoord)
-  // console.log("program.uSampler: " + program.uSampler)
-  // console.log(" program.uLightDirection: " +  program.uLightDirection)
-  // console.log("program.aVertexPosition: " + program.aVertexPosition)
-
-  // if (!program.aVertexTextureCoord) {
-  //   console.log('Failed to get the storage location of aVertexTextureCoord');
-  // }
-  // if (!program.uSampler) {
-  //   console.log('Failed to get the storage location of uSampler');
-  // }
 }
 
 export { initShaderProgram };

@@ -35,8 +35,8 @@ function main() {
 
   const program = initShaderProgram(gl);
   const buffers = initBuffers(gl, program);
-  const tex = initTextures(gl);
-  // gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);// Flip texture image
+  const img_url = './textureImg/p1.png';// './textureImg/webgl.png'//'./textureImg/bobobo.png'
+  const tex = initTextures(gl, img_url);
   initLights(gl, program);
   let 
     deltaTime,
@@ -45,8 +45,6 @@ function main() {
   const scale_degree = 70;//50;
 
   initTransforms(gl, program, degree);
-
-
   const info_obj_trans = [];
   const num_cubes = 100;//50;//2;
 
@@ -77,6 +75,5 @@ function main() {
     degree -= scale_degree * deltaTime;  
     requestAnimationFrame(animateLoop);
   }
-  requestAnimationFrame(animateLoop);
-  
+  requestAnimationFrame(animateLoop); 
 }
