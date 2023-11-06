@@ -35,8 +35,9 @@ function main() {
 
   const program = initShaderProgram(gl);
   const buffers = initBuffers(gl, program);
-  const img_url = './textureImg/p1.png';// './textureImg/webgl.png'//'./textureImg/bobobo.png'
-  const tex = initTextures(gl, img_url);
+  const img_urls = ['./textureImg/p1.png', './textureImg/p2.png'];
+  // const img_url = './textureImg/p1.png';// './textureImg/webgl.png'//'./textureImg/bobobo.png'
+  const texs = initTextures(gl, img_urls);
   initLights(gl, program);
   let 
     deltaTime,
@@ -44,9 +45,9 @@ function main() {
     degree = 480;//90;//45;
   const scale_degree = 70;//50;
 
-  initTransforms(gl, program, degree);
+  initTransforms(gl, program, degree, texs);
   const info_obj_trans = [];
-  const num_cubes = 100;//50;//2;
+  const num_cubes = 10;//100;//50;//2;
 
   for (let i = 0; i < num_cubes; i++) {
     const randomOffsetX = Math.random() * 8 - 4; // -4から4までの乱数
@@ -71,7 +72,7 @@ function main() {
     then = now;
 
     // updateTransforms(gl, program, degree, info_obj_trans);
-    drawScene(gl, program, buffers, degree, info_obj_trans, tex);
+    drawScene(gl, program, buffers, degree, info_obj_trans, texs);
     degree -= scale_degree * deltaTime;  
     requestAnimationFrame(animateLoop);
   }
