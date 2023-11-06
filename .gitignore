@@ -3,3 +3,4 @@
 tmp/
 src/sample13_texture/textureImg/*
 !src/sample13_texture/textureImg/.gitkeep
+out/
