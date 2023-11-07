@@ -47,7 +47,7 @@ function main() {
 
   initTransforms(gl, program, degree, texs);
   const info_obj_trans = [];
-  const num_cubes = 10;//100;//50;//2;
+  const num_cubes = 100;//100;//50;//2;
 
   for (let i = 0; i < num_cubes; i++) {
     const randomOffsetX = Math.random() * 8 - 4; // -4から4までの乱数
