@@ -43,8 +43,11 @@
     * https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample6
 * `sample14_multiple_textures/`
     * 3d cubes with multiple textures mapping
-* threejs/
+* `threejs/`
     * 3d cube
     * https://ics.media/tutorial-three/material_basic/
     * https://codepen.io/chadritchie/pen/DQZYNy
 
+## スライド
+* WebGL2入門
+    * https://speakerdeck.com/rintarooo/webgl2ru-men
