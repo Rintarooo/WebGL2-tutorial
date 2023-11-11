@@ -44,11 +44,13 @@ function initShaderProgram(gl) {
 }
 
 function attachAttrib(gl, program){
-  //  gl.getAttribLocation(): attribute 変数名 (name) を指定して、attribute変数がどの位置（インデックス）にバインドされているかを問い合わせる。
+  // gl.getAttribLocation(): attribute 変数名 (name) を指定して、attribute変数がどの位置（インデックス）にバインドされているかを問い合わせる。
   // この位置（インデックス）とは、頂点データをGPU（vertex shader側）に送信するときに、GPUがシェーダープログラム内の特定の属性変数を識別するための一種の識別子、または参照するもの。
+  // Attribute
   program.aVertexPosition = gl.getAttribLocation(program, 'aVertexPosition');
   program.aVertexNormal = gl.getAttribLocation(program, 'aVertexNormal');
   program.aVertexTextureCoord = gl.getAttribLocation(program, "aVertexTextureCoord");
+  // Uniform
   program.uProjectionMatrix = gl.getUniformLocation(program, 'uProjectionMatrix');
   program.uViewMatrix = gl.getUniformLocation(program, 'uViewMatrix');
   program.uModelMatrix = gl.getUniformLocation(program, 'uModelMatrix');

@@ -1,11 +1,6 @@
-// import {shininess, lightColor, lightAmbient, lightSpecular, lightDirection, materialDiffuse, materialAmbient, materialSpecular} from '/bufferData/lighting.js'
-
 function initLights(gl, program) {
-  // https://github.com/Rintarooo/OpenGLCourseJP/blob/vm/src/shading_models/main.cpp#L341-L353
-  // シェーディングのためのマテリアル情報
   // Material parameters for shading
-  // (http://www.barradeau.com/nicoptere/dump/materials.html)
-  
+  // http://www.barradeau.com/nicoptere/dump/materials.html 
   const 
       shininess = 1.0,//10,
       lightColor = [1, 1, 1, 1],

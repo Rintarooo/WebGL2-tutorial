@@ -36,7 +36,6 @@ function main() {
   const program = initShaderProgram(gl);
   const buffers = initBuffers(gl, program);
   const img_urls = ['./textureImg/p1.png', './textureImg/p2.png'];
-  // const img_url = './textureImg/p1.png';// './textureImg/webgl.png'//'./textureImg/bobobo.png'
   const texs = initTextures(gl, img_urls);
   initLights(gl, program);
   let 

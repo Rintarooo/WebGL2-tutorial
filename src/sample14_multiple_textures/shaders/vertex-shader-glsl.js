@@ -20,7 +20,6 @@
 
  void main(void) {
   gl_Position = uProjectionMatrix * uViewMatrix * uModelMatrix * vec4(aVertexPosition, 1.0);
-  // vec4 light = uModelMatrix * vec4(uLightPosition, 1.0);
   vec4 light = vec4(uLightPosition, 1.0);
 
   vec4 vertex =  uViewMatrix * uModelMatrix * vec4(aVertexPosition, 1.0);
