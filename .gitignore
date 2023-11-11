@@ -1,3 +1,8 @@
 .DS_Store
 /.vscode/
 tmp/
+src/sample13_texture/textureImg/*
+!src/sample13_texture/textureImg/.gitkeep
+out/
+src/sample14_multiple_textures/textureImg/*
+!src/sample14_multiple_textures/textureImg/.gitkeep
