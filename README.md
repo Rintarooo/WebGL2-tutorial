@@ -2,43 +2,47 @@
 
 ![cube_multiple](https://github.com/Rintarooo/my_webgl_tutorial/assets/51239551/f03ccd30-c455-4e48-a758-1e12e94b88e7)
 
-* sample0_hello_world_canvas/
-* sample1_hello_world_webgl/
+* `sample0_hello_world_canvas/`
+* `sample1_hello_world_webgl/`
+    * clear background with one color
     * https://viewpoint-nk.github.io/blog/webgl/webgl-hello-world.html
-* sample2_2d_square/
+* `sample2_2d_square/`
     * VBO(vertex position) only
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
-* sample3_2d_square_ibo/
+* `sample3_2d_square_ibo/`
     * VBO + IBO
-* sample4_2d_square_vao/
+* `sample4_2d_square_vao/`
     * VAO(vertex position) + IBO
-* sample5_2d_square_vao_color/
+* `sample5_2d_square_vao_color/`
     * VAO(vertex position + vertex color) + IBO
-* sample6_3d_cube/
+* `sample6_3d_cube/`
     * 3d cube vao, cam lookat
     * import glMatrix
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
     * https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample5
     * https://github.com/sessamekesh/IndigoCS-webgl-tutorials/blob/dff2ce9800d5cabc5bf8e226b8fce1df0df2f489/02%20-%20Rotating%20Cube/app.js#L189-L197
     * https://github.com/Rintarooo/OpenGLCourseJP/blob/8c44261979c88b02b6ba0d373ec07963b5126d3a/src/shading_models/main.cpp#L341-L353
-* sample7_3d_cube_animation_cam_rotate/
+* `sample7_3d_cube_animation_cam_rotate/`
     * animation, 3d cube, camera position rotate around y axis
-* sample8_3d_cube_animation_cube_rotate/
+* `sample8_3d_cube_animation_cube_rotate/`
     * animation, 3d cube, cube itself rotate around y axis
-* sample9_3d_cube_orbit_cam/
+* `sample9_3d_cube_orbit_cam/`
     * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera
-* sample10_3d_cube_orbit_cam_phong/
+* `sample10_3d_cube_orbit_cam_phong/`
     * animation, 3d cube rotate around y axis, mouse and wheel func, orbit camera, phong shading, parallelLight
     * https://github.com/Rintarooo/Real-Time-3D-Graphics-with-WebGL-2/blob/6a86cecafe1f50e079869920490cc48f8b97b32d/common/js/utils.js#L79-L143
-* sample11_3d_cube_orbit_cam_phong_pointLight/
+* `sample11_3d_cube_orbit_cam_phong_pointLight/`
     * animation, 3d cube rotate around y axis, mo_use and wheel func, orbit camera, phong shading, pointLight
-* sample12_3d_cube_orbit_cam_phong_pointLight_multipleCubes/
+* `sample12_3d_cube_orbit_cam_phong_pointLight_multipleCubes/`
     * animation, 3d cube rotate around y axis, mo_use and wheel func, orbit camera, phong shading, pointLight, multiple cubes
-* sample13_texture
-    * 3d cube, texture mapping
+* `sample13_texture/`
+    * 3d cubes with texture mapping
+    * you need to prepare texture image in `textureImg/`
     * https://developer.mozilla.org/ja/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
     * https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
     * https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample6
+* `sample14_multiple_textures/`
+    * 3d cubes with multiple textures mapping
 * threejs/
     * 3d cube
     * https://ics.media/tutorial-three/material_basic/
